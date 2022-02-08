@@ -19,9 +19,7 @@
             font-family: 'Londrina Shadow';
             color: slategray;
             font-size: 3.5em;
-        }
-        h1.animate__heartBeat{
-            display: inline-block;
+            display:flex;
         }
 
         body {
@@ -30,7 +28,43 @@
         .ball{
             visibility: hidden;
         }
+
+        [title~="red"]:hover {
+            color: red;
+        }
+
+        [title~="green"]:hover {
+            color: green;
+        }
+
+        [title~="blue"]:hover {
+            color: blue;
+        }
+        [title~="birthday"]:hover {
+            color: black;
+        }
     </style>
+
+<script type="text/javascript">  
+    function selects(){  
+        var ele=document.getElementsByName('all'); 
+        var count = 0;
+        while(count < 3)
+        {  
+            ele[count].checked=true; 
+            count++;      
+        }        
+    }
+
+</script> 
+
+ <script type="text/javascript"> 
+      function deSelect()
+    {  
+         window.location.reload();                  
+    }             
+</script> 
+
 </head>
 <body>
        <!-- toast -->
@@ -46,11 +80,10 @@
             <b>Select at least one balloon.</b>
         </div>
     </div>
-
     <!-- content -->
     <div class="container">
       <!-- random attention seeker -->
-      <h1>Happy Birthday!</h1><hr /> 
+      <h1 title="birthday" class="birthday">Happy Birthday!</h1><hr /> 
         <form role="form">
             <div class="row">
                 <div class="col-sm">
@@ -62,24 +95,26 @@
                         <label for="birthday">Birthday</label>
                         <input type="text" class="form-control" id="birthday" placeholder="Enter birthday" />
                     </div>
-                    <div class="card" id="spoil">
+                    <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Select your favorite balloons</h5>
                             <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="red">
-                                <label class="form-check-label" for="red">Red balloons</label>
+                                <input type="checkbox" class="form-check-input" name="all" id="red">
+                                <label class="form-check-label" title="red" for="red" class="redClass">Red balloons</label>
                             </div>
                             <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="green">
-                                <label class="form-check-label" for="green">Green balloons</label>
+                                <input type="checkbox"  class="form-check-input" name="all" id="green">
+                                <label class="form-check-label" title="green" for="green">Green balloons</label>
                             </div>
                             <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="blue">
-                                <label class="form-check-label" for="blue">Blue balloons</label>
+                                <input type="checkbox"  class="form-check-input" name="all" id="blue">
+                                <label class="form-check-label" title="blue" for="blue">Blue balloons</label>
                             </div>
                         </div>
                     </div>
                     <button type="button" class="btn btn-outline-primary mt-3" id="submit">Submit</button>
+                    <button type="button" onclick='selects()' class="btn btn-outline-primary mt-3">Select All</button>
+                    <button type="button" onclick='deSelect()' class="btn btn-outline-primary mt-3">Deselect All</button>
                 </div>
                 <div class="col-sm">
                     <img src="media/red.png" class="ball" alt="red balloon" id="redImg" />
@@ -89,7 +124,6 @@
             </div>
         </form>
     </div>
-
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- popper -->

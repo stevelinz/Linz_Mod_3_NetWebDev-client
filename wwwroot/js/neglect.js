@@ -12,7 +12,7 @@ $(function(){
 
            if (count === 0)
             {
-                $('#toast').toast({delay: 15000});
+                $('#toast').toast({delay: 10000});
                 $('#toast').toast({ autohide: false }).toast('show');   
             }           
         }
@@ -22,10 +22,8 @@ $(function(){
     $(document).on('keyup', function(e) {
         if (e.key === "Escape") {
             $('#toast').toast('hide');
-        }
-                     
+        }                  
     });   
-
 });
 
 
